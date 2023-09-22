@@ -1,0 +1,1428 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca/"
+     xml:base="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:biblioteca="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#"
+     xmlns:sw-vocab-status="http://www.w3.org/2003/06/sw-vocab-status/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca">
+        <owl:imports rdf:resource="http://127.0.0.1:3001/ontology/books.owl"/>
+        <owl:imports rdf:resource="http://purl.org/spar/foaf"/>
+        <rdfs:comment>Questa ontologia ha lo scopo di rappresentare le biblioteche e la loro organizzazione interna, in funzione della realizzazione progetto per l&apos;esame di Modellazione e Gestione della Conoscienza.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://127.0.0.1:3001/ontology/books.owl#writtenBy -->
+
+    <rdf:Description rdf:about="http://127.0.0.1:3001/ontology/books.owl#writtenBy">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ScrittoDa"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbona -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbona">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Assistente"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bibliotecario"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Persona"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#AbbonatoA -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#AbbonatoA">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Persona"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Accetta -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Accetta">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#AccettatoDa"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Assistente"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bibliotecario"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#AccettatoDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#AccettatoDa">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioAccettato"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Assistente"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bibliotecario"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Causa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Causa">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#CausataDa"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioTerminato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sanzione"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#CausataDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#CausataDa">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sanzione"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioTerminato"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#CompostaDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#CompostaDa">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ParteDi"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ContenutoIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ContenutoIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Contiene"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Contiene -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Contiene">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Gestisce -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Gestisce">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#GestitaDa"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bibliotecario"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#GestitaDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#GestitaDa">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bibliotecario"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#HaOggettoNoleggio -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#HaOggettoNoleggio">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#OggettoNoleggio"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#HaVolume -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#HaVolume">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#VolumeDi"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#LavoraIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#LavoraIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Dipendente"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+        <rdfs:comment>La proprietà è considerata funzionale poichè si assume che un dipendente possa lavorare a tempo pieno in una sola biblioteca.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#OggettoNoleggio -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#OggettoNoleggio">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Paga -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Paga">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#PagataDa"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sanzione"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#PagataDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#PagataDa">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sanzione"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ParteDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ParteDi">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#PossedutaDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#PossedutaDa">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Possiede"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Possiede -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Possiede">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Restituisce -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Restituisce">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#RestituitoDa"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#RestituitoDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#RestituitoDa">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Richiede -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Richiede">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#RichiestoDa"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#RichiestoDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#RichiestoDa">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ScrittoDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ScrittoDa">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scrive"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Autore"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scrive -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scrive">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Autore"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Termina -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Termina">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#TerminatoDa"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioAccettato"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#TerminatoDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#TerminatoDa">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioTerminato"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#VolumeDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#VolumeDi">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Argomento -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Argomento">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Cellulare -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Cellulare">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Cifra -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Cifra">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sanzione"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#DataAvvenimento -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#DataAvvenimento">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#DataRestituzione -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#DataRestituzione">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioTerminato"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#DataScadenza -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#DataScadenza">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioAccettato"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Email -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Email">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ISBN -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ISBN">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Identificativo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Identificativo">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Indirizzo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Indirizzo">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Nome -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Nome">
+        <rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://127.0.0.1:3001/ontology/books.owl#Author -->
+
+    <rdf:Description rdf:about="http://127.0.0.1:3001/ontology/books.owl#Author">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Autore"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato">
+        <rdfs:subClassOf rdf:resource="http://127.0.0.1:3001/ontology/books.owl#Reader"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Persona"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#AbbonatoA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Possiede"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Cellulare"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Indirizzo"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Email"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Altre informazioni personali quali data di nascita, nome, cognome sono già definite per la classe &apos;(foaf) Agent&apos;, di cui abbonato è sottoclasse in quanto sottoclasse di Person.</rdfs:comment>
+        <rdfs:comment>L&apos;utente può essere abbonato in più biblioteche contemporaneamente, può essere responsabile del pagamento di una o più sanzioni, possiede un&apos;unica tessera di iscrizione per biblioteca e può richiedere un numero indefinito di noleggi.</rdfs:comment>
+        <rdfs:comment>La classe rappresenta un utente abbonato ad una biblioteca biblioteca.</rdfs:comment>
+        <rdfs:comment>Si tiene traccia del numero di cellulare, dell&apos;email e dell&apos;indirizzo di residenza dell&apos;abbonato in quanto sono dati di natura personale che potrebbero essere richiesti per effettuare l&apos;abbonamento.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Assistente -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Assistente">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Dipendente"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbona"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Persona"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Accetta"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>La classe rappresenta l&apos;assistente bibliotecario di una biblioteca.</rdfs:comment>
+        <rdfs:comment>Un assistente, come si può notare dai vincoli della classe, ha le stesse mansioni, definite dalle object property, di un bibliotecario ma non gestisce la biblioteca.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Autore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Autore">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Persona"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scrive"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scrive"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>La classe rappresenta l&apos;autore di un libro, o di una serie di libri, ed è sottoclasse di persona.</rdfs:comment>
+        <rdfs:comment>Un autore viene considerato tale se scrive almeno un libro, tuttavia può scriverne un numero indefinito. Lo stesso discorso si applica alle serie.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#GestitaDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bibliotecario"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Nome"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Persona"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sanzione"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera"/>
+        <rdfs:comment>La classe rappresenta una biblioteca intesa come struttura.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bibliotecario -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bibliotecario">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Dipendente"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbona"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Persona"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Accetta"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Gestisce"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>La classe rappresenta il bibliotecario di una biblioteca, che è un dipendente della stessa.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Dipendente -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Dipendente">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Persona"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#LavoraIn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>La classe rappresenta un dipendente che lavora presso una biblioteca. La relazione &apos;LavoraIn&apos; è vincolata ad esattamente una biblioteca poichè si assumen che una persona possa lavorare a tempo pieno in un solo posto contemporaneamente.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Duologia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Duologia">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#HaVolume"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro">
+        <rdfs:subClassOf rdf:resource="http://127.0.0.1:3001/ontology/books.owl#Book-Type"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#VolumeDi"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ContenutoIn"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ScrittoDa"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Autore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Nome"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ISBN"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#LibroNoleggiato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#LibroNoleggiato">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#OggettoNoleggio"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioAccettato"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#HaOggettoNoleggio"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#RichiestoDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#DataAvvenimento"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>La classe rappresenta una richiesta di noleggio di un libro in attesa di accettazione.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioAccettato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioAccettato">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#AccettatoDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Assistente"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bibliotecario"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioTerminato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioTerminato">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioAccettato"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#TerminatoDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Pentalogia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Pentalogia">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#HaVolume"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Persona -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Persona">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Premium -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Premium">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Richiede"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Standard"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sanzione -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sanzione">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#CausataDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#NoleggioAccettato"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#PagataDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Cifra"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>La classe rappresenta una sanzione che si assume sia stata causata dalla restituzione tardiva di un libro a seguito di un noleggio.</rdfs:comment>
+        <rdfs:comment>La sanzione può essere pagata solamente da un abbonato (che si suppone sia colui che ha noleggiato il liibro in primo luogo).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Contiene"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ParteDi"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Identificativo"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>La classe rappresenta uno scaffale di libri di una biblioteca</rdfs:comment>
+        <rdfs:comment>Lo scaffale fa parte di una determinata sezione ed il vincolo indica che può contenere alcuni libri, oppure essere vuoto.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ScrittoDa"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Autore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Nome"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>La classe rappresenta una generica serie letteraria composta da più volumi (minimo 2).</rdfs:comment>
+        <rdfs:comment>Una serie ha almeno un nome (potrebbe essere chiamata in più modi) ed è stata scritta da almeno un autore (potrebbe essere stata realizzata tramite una collaborazione).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#CompostaDa"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#ParteDi"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Argomento"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Identificativo"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>La DataProperty Identificativo rappresenta il codice identificativo della sezione, che è vincolato a 3 cifre.</rdfs:comment>
+        <rdfs:comment>La classe rappresenta una generica sezione di una biblioteca.</rdfs:comment>
+        <rdfs:comment>Una sezione è parte di una specifica biblioteca, oppure parte di un&apos;ulteriore sezione della quale è sottosezione. Viceversa una sezione può essere composta da (minimo) uno scaffale oppure da altre sezioni, che ne sono sottosezioni.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Standard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Standard">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Richiede"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:maxQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#PossedutaDa"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#DataAvvenimento"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#DataScadenza"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Identificativo"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>La DataProperty Identificativo rappresenta il codice identificativo del possessore della tessera, ed il suo valore è vincolato a 10 cifre.</rdfs:comment>
+        <rdfs:comment>La classe rappresenta la tessera di abbonamento che viene data ad un utente dopo essersi abbonato ad una certa biblioteca</rdfs:comment>
+        <rdfs:comment>Una tessera è univoca, perciò può essere posseduta solamente da un abbonato.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tetralogia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tetralogia">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#HaVolume"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Trilogia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Trilogia">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#HaVolume"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#A -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#A">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+        <biblioteca:Richiede rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio1"/>
+        <biblioteca:Richiede rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio2"/>
+        <biblioteca:Richiede rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio3"/>
+        <biblioteca:Cellulare rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3667009283</biblioteca:Cellulare>
+        <biblioteca:Email>andrea.malloni@studenti.unicam.it</biblioteca:Email>
+        <biblioteca:Indirizzo>via pazzi 12</biblioteca:Indirizzo>
+        <foaf:name>Andrea</foaf:name>
+        <foaf:surname>Malloni</foaf:surname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#B -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#B">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Abbonato"/>
+        <biblioteca:Richiede rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio4"/>
+        <biblioteca:Cellulare rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3427898936</biblioteca:Cellulare>
+        <biblioteca:Email>daniele.monaldi@studenti.unicam.it</biblioteca:Email>
+        <biblioteca:Indirizzo>Via luigi fontana 93</biblioteca:Indirizzo>
+        <foaf:name>Daniele</foaf:name>
+        <foaf:surname>Monaldi</foaf:surname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bib1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bib1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Bibliotecario"/>
+        <biblioteca:Accetta rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio1"/>
+        <biblioteca:LavoraIn rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#BiblioSus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#BiblioSus -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#BiblioSus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Biblioteca"/>
+        <biblioteca:CompostaDa rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#GOT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#GOT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Serie"/>
+        <biblioteca:Nome>GOT</biblioteca:Nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+        <biblioteca:ContenutoIn rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale1"/>
+        <biblioteca:ScrittoDa rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Pippo"/>
+        <biblioteca:VolumeDi rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#GOT"/>
+        <biblioteca:ISBN rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2222222222222</biblioteca:ISBN>
+        <biblioteca:Nome>Libro di prova 1</biblioteca:Nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro"/>
+        <biblioteca:ContenutoIn rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale2"/>
+        <biblioteca:ScrittoDa rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Pippo"/>
+        <biblioteca:VolumeDi rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#GOT"/>
+        <biblioteca:ISBN rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1111111111111</biblioteca:ISBN>
+        <biblioteca:Nome>Libro di prova 2</biblioteca:Nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+        <biblioteca:HaOggettoNoleggio rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro1"/>
+        <biblioteca:DataAvvenimento rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-06-23T09:21:00</biblioteca:DataAvvenimento>
+        <biblioteca:DataScadenza rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-06-30T09:52:00</biblioteca:DataScadenza>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+        <biblioteca:HaOggettoNoleggio rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro1"/>
+        <biblioteca:DataAvvenimento rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-06-20T09:21:00</biblioteca:DataAvvenimento>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+        <biblioteca:HaOggettoNoleggio rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro2"/>
+        <biblioteca:DataAvvenimento rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-06-21T09:21:00</biblioteca:DataAvvenimento>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Noleggio"/>
+        <biblioteca:HaOggettoNoleggio rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro2"/>
+        <biblioteca:DataAvvenimento rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-06-22T09:21:00</biblioteca:DataAvvenimento>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Pippo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Pippo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Autore"/>
+        <biblioteca:Scrive rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#GOT"/>
+        <biblioteca:Scrive rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro1"/>
+        <biblioteca:Scrive rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Libro2"/>
+        <biblioteca:Nome>Giorgia Meloni</biblioteca:Nome>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale"/>
+        <biblioteca:ParteDi rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione1"/>
+        <biblioteca:Identificativo rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">32</biblioteca:Identificativo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale"/>
+        <biblioteca:ParteDi rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione1"/>
+        <biblioteca:Identificativo rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">33</biblioteca:Identificativo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sezione"/>
+        <biblioteca:CompostaDa rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Scaffale1"/>
+        <biblioteca:Identificativo rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">343</biblioteca:Identificativo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera"/>
+        <biblioteca:PossedutaDa rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#A"/>
+        <biblioteca:Identificativo rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1212121212</biblioteca:Identificativo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tessera"/>
+        <biblioteca:PossedutaDa rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#B"/>
+        <biblioteca:Identificativo rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">9090909090</biblioteca:Identificativo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#sanzione1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#sanzione1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Sanzione"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Duologia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Pentalogia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Tetralogia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca#Trilogia"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <!ENTITY ex "http://example.org/">
+]>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+    <!-- Triple 1 -->
+    <rdf:Description rdf:about="http://example.org/person1">
+        <rdf:type rdf:resource="http://example.org/Person"/>
+        <rdfs:label>John Doe</rdfs:label>
+    </rdf:Description>
+
+    <!-- Triple 2 -->
+    <rdf:Description rdf:about="http://example.org/person1">
+        <owl:sameAs rdf:resource="http://example.org/john_doe"/>
+    </rdf:Description>
+
+    <!-- Triple 3 -->
+    <rdf:Description rdf:about="http://example.org/john_doe">
+        <rdfs:label>John Doe</rdfs:label>
+        <rdf:type rdf:resource="http://example.org/Person"/>
+    </rdf:Description>
+</rdf:RDF>

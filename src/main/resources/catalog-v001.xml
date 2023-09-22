@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://purl.org/ontology/bibo/" uri="https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#Book"/>
+    <uri id="Imports Wizard Entry" name="http://127.0.0.1:3001/ontology/books.owl" uri="https://gist.githubusercontent.com/tarrsalah/ad25be8c0ab03460c8dc/raw/b668e4a82e5e94cf6ff76d005a3d6be9fa51a294/books.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1688107369850" name="http://www.semanticweb.org/mallo/ontologies/2023/5/biblioteca/" uri="progetto_MGC.owl"/>
+    </group>
+</catalog>
